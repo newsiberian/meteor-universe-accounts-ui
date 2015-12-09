@@ -2,6 +2,24 @@ export default {
     capitalize (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     },
+    currentUser () {
+        if (typeof ReactionCore === "object") {
+            // shoppers should always be guests
+            const isGuest = Roles.userIsInRole(Meteor.user(), "guest", ReactionCore
+              .getShopId());
+            // but if a user has never logged in then they are anonymous
+            const isAnonymous = Roles.userIsInRole(Meteor.user(), "anonymous",
+              ReactionCore.getShopId());
+
+            return isGuest && !isAnonymous ? Meteor.user() : null;
+            //if (!isGuest && isAnonymous) {
+            //    return null;
+            //} else if (isGuest && !isAnonymous) {
+            //    return Meteor.user();
+            //}
+            //return null;
+        }
+    },
     getServiceNames () {
         if (!Package['accounts-oauth']) {
             // no oauth package so no services

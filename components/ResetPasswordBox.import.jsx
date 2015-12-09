@@ -2,6 +2,7 @@
 
 import ErrorMessages from './ErrorMessages';
 import LoggedIn from './LoggedIn';
+import utils from '../utils';
 import i18n from '{universe:i18n}';
 
 //instance of translate component in "accounts-ui" namespace
@@ -15,7 +16,7 @@ export default React.createClass({
     },
     getMeteorData () {
         return {
-            user: Meteor.user()
+            user: utils.currentUser()
         };
     },
     getInitialState () {

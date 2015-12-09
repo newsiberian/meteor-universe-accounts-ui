@@ -18,7 +18,7 @@ export default React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData () {
         return {
-            user: Meteor.user()
+            user: utils.currentUser()
         };
     },
     getInitialState () {
