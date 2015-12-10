@@ -31,6 +31,7 @@ Package.onUse(function (api) {
         'utils.import.js',
         'components/ComboBox.import.jsx',
         'components/ErrorMessages.import.jsx',
+        'components/InlineLoginBox.import.jsx',
         'components/LoggedIn.import.jsx',
         'components/LoginBox.import.jsx',
         'components/LoginForm.import.jsx',
